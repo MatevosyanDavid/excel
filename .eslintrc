@@ -7,6 +7,9 @@
   },
   "rules": {
     "comma-dangle": ["error", "always-multiline"],
+    "class-methods-use-this": "off",
+    "no-param-reassign": "off",
+    "no-plusplus": "off",
     "no-console": "off"
   },
   "extends": [

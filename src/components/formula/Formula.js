@@ -1,0 +1,29 @@
+import ExcelComponent from 'src/core/ExcelComponent';
+
+export default class Formula extends ExcelComponent {
+  static className = 'excel_formula';
+
+  constructor(root) {
+    super(root, {
+      name: 'Formula',
+      listeners: ['input', 'click'],
+    });
+  }
+
+  toHTML() {
+    return (`
+      <div class="info">fx</div>
+      <div class="input" contenteditable spellcheck="false"></div>
+    `);
+  }
+
+  onInput(event) {
+    console.log('Formula: onInput', event);
+    // console.log(this.root);
+  }
+
+  onClick(event) {
+    console.log('Formula: onInput', event);
+  //   console.log(this.root);
+  }
+}
