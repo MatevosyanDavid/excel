@@ -15,14 +15,15 @@ export default class DOMListener {
       if (!this[method]) {
         throw new Error(`${method} is not implemented in ${this.name}`);
       }
-      this.root.on(listener, this[method].bind(this));
+      this[method] = this[method].bind(this);
+      this.root.on(listener, this[method]);
     });
   }
 
   removeDOMListeners() {
     this.listeners.forEach(listener => {
-      console.log(listener);
-      this.root.off(listener);
+      const method = getMethodName(listener);
+      this.root.off(listener, this[method]);
     });
   }
 }
