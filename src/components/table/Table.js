@@ -15,15 +15,7 @@ export default class Table extends ExcelComponent {
     return createTable(20);
   }
 
-  onMousedown(/* event */) {
-
-  }
-
-  onMousemove(event) {
-    console.log(event);
-  }
-
-  onMouseup(event) {
-    console.log(event);
+  onMousedown(event) {
+    console.log(event.target);
   }
 }

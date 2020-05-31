@@ -34,25 +34,18 @@ function createRow(index, content) {
   `);
 }
 
-function toChar(_, index) {
-  return String.fromCharCode(codes.A + index);
-}
-
 export function createTable(rowsCount = 15) {
-  const colsCount = codes.Z - codes.A + 1; // Compute cols count
   const rows = [];
 
-  const cols = new Array(colsCount)
+  const cols = new Array(codes.getColsCount())
     .fill('')
-    .map(toChar)
-    .map(toColumn)
+    .map((_, i) => toColumn(String.fromCharCode(codes.A + i)))
     .join('');
 
   rows.push(createRow(null, cols));
 
   for (let i = 0; i < rowsCount; i++) {
-    const cells = new Array(colsCount)
-      .fill('')
+    const cells = Array(codes.getColsCount()).fill('')
       .map(toCell)
       .join('');
 
