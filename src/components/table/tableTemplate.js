@@ -6,29 +6,30 @@ const codes = {
   },
 };
 
-function toCell() {
+function toCell(_, col) {
   return (`
-    <div class="cell" contenteditable></div>
+    <div class="cell" contenteditable data-col="${col}"></div>
   `);
 }
 
-function toColumn(string) {
+function toColumn(col, index) {
   return (`
-    <div class="column">
-      ${string}
+    <div class="column" data-type="resizable" data-col="${index}">
+      ${col}
+      <div class="col-resize" data-resize="col"></div>
     </div>
   `);
 }
 
 function createRow(index, content) {
+  const resize = index ? '<div class="row-resize" data-resize="row"></div>' : '';
   return (`
-    <div class="row">
+    <div class="row" data-type="resizable">
       <div class="row-info">
-        ${index}
+        ${index || ''}
+        ${resize}
       </div>
-      <div class="row-data">
-        ${content }
-      </div>
+      <div class="row-data">${content}</div>
     </div>
   `);
 }
@@ -36,19 +37,20 @@ function createRow(index, content) {
 export function createTable(rowsCount = 15) {
   const rows = [];
 
-  const cols = Array(codes.getColsCount()).fill('')
-    .map((_, i) => toColumn(String.fromCharCode(i + codes.A)))
+  const cols = new Array(codes.getColsCount())
+    .fill('')
+    .map((_, i) => toColumn(String.fromCharCode(codes.A + i), i))
     .join('');
 
-  rows.push(createRow('', cols));
-
+  rows.push(createRow(null, cols));
 
   for (let i = 0; i < rowsCount; i++) {
-    const cels = Array(codes.getColsCount()).fill('')
+    const cells = Array(codes.getColsCount()).fill('')
       .map(toCell)
       .join('');
-    rows.push(createRow(i + 1, cels));
-    console.log(cels);
+
+    rows.push(createRow(i + 1, cells));
   }
+
   return rows.join('');
 }
