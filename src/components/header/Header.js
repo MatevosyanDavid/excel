@@ -1,4 +1,4 @@
-import ExcelComponent from 'src/core/ExcelComponent';
+import ExcelComponent from '../../core/ExcelComponent';
 
 export default class Header extends ExcelComponent {
   static className = 'excel_header';

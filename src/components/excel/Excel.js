@@ -1,4 +1,4 @@
-import { $ } from 'src/core/Dom';
+import { $ } from '../../core/Dom';
 
 export default class Excel {
   constructor(selector, { components = [] }) {

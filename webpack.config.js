@@ -35,9 +35,6 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js'],
-    alias: {
-      src: path.resolve(__dirname, 'src'),
-    },
   },
   devtool: !isProd ? 'source-map' : false,
   plugins: [

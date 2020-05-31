@@ -1,8 +1,8 @@
-import Excel from 'src/components/excel/Excel';
-import Table from 'src/components/table/Table';
-import Header from 'src/components/header/Header';
-import Toolbar from 'src/components/toolbar/ToolBar';
-import Formula from 'src/components/formula/Formula';
+import Excel from './components/excel/Excel';
+import Table from './components/table/Table';
+import Header from './components/header/Header';
+import Toolbar from './components/toolbar/ToolBar';
+import Formula from './components/formula/Formula';
 
 import './scss/index.scss';
 

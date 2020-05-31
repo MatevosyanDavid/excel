@@ -1,4 +1,4 @@
-import DOMListener from 'src/core/DOMListener';
+import DOMListener from './DOMListener';
 
 export default class ExcelComponent extends DOMListener {
   constructor(root, options = {}) {
