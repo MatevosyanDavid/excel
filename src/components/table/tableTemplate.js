@@ -39,7 +39,7 @@ export function createTable(rowsCount = 15) {
 
   const cols = new Array(codes.getColsCount())
     .fill('')
-    .map((_, i) => toColumn(String.fromCharCode(codes.A + i)))
+    .map((_, i) => toColumn(String.fromCharCode(codes.A + i), i))
     .join('');
 
   rows.push(createRow(null, cols));
