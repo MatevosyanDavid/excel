@@ -1,4 +1,4 @@
-import ExcelComponent from 'src/core/ExcelComponent';
+import ExcelComponent from '../../core/ExcelComponent';
 
 import { createTable } from './tableTemplate';
 import { resizeHandler } from './tableResize';

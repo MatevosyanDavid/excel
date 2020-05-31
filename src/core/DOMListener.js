@@ -1,4 +1,4 @@
-import { getMethodName } from 'src/core/utils';
+import { getMethodName } from './utils';
 
 export default class DOMListener {
   constructor(root, listeners = []) {
